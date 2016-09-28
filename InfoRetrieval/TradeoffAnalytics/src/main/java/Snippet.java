@@ -21,15 +21,15 @@ import com.ibm.watson.developer_cloud.tradeoff_analytics.v1.model.column.Numeric
 @WebServlet("/")
 public class Snippet extends SuperGluev2 {
 	
-	public String parameters = "{\"username\":\"\",\"password\":\"\",\"text\":\"hello my friend\",\"fromLanguage\":\"ENGLISH\",\"toLanguage\":\"SPANISH\"}";
+	public String parameters = "{\"username\":\"\",\"password\":\"\"}";
 	
 	@Override
 	protected JsonObject process(String jsonString) {
 		JsonParser parser = new JsonParser(); 
+		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();
 		
 		TradeoffAnalytics service = new TradeoffAnalytics();
-	    service.setEndPoint("https://watson-api-explorer.mybluemix.net/tradeoff-analytics/api");
-	    service.setUsernameAndPassword("", ""); 
+	    service.setUsernameAndPassword(myBean.get("username").getAsString(), myBean.get("password").getAsString()); 
 	    Problem problem = new Problem("phone");
 	    String price = "price";
 	    String ram = "ram";

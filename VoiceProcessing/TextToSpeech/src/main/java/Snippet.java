@@ -14,7 +14,7 @@ import com.ibm.watson.developer_cloud.text_to_speech.v1.model.Voice;
 @WebServlet("/")
 public class Snippet extends SuperGluev2 {
 	
-	public String parameters = "{\"username\":\"a451af34-de51-40b3-a3ce-7ec7b3479b8a\",\"password\":\"2LICJvMSlIwR\"}";
+	public String parameters = "{\"username\":\"\",\"password\":\"\"}";
 	
 	@Override
 	protected JsonObject process(String jsonString) {
@@ -22,7 +22,6 @@ public class Snippet extends SuperGluev2 {
 		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
 		
 		TextToSpeech service = new TextToSpeech();
-		
 		service.setUsernameAndPassword(myBean.get("username").getAsString(), myBean.get("password").getAsString());
 		 
 		List<Voice> voices = service.getVoices().execute();

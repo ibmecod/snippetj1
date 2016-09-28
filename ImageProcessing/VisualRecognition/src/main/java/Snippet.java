@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -26,25 +26,21 @@ public class Snippet extends SuperGluev2 {
 		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
 		
 		VisualRecognition service = new VisualRecognition(VisualRecognition.VERSION_DATE_2016_05_19);
-	    service.setApiKey(myBean.get("apiKey").getAsString());    
+	    service.setApiKey(myBean.get("apiKey").getAsString()); 
 	    
-	    File obama;    
+	    File fileA = new File("test.jpg"); 
 	    URL url = null;
 		try {
 			url = new URL(myBean.get("url").getAsString());
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-	    obama = new File("test.jpg");     
-	    try {
-			FileUtils.copyURLToFile(url, obama);
+			URLConnection conn = url.openConnection();
+			conn.setRequestProperty("User-Agent", "NING/1.0");
+		    FileUtils.copyInputStreamToFile(conn.getInputStream(), fileA);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}     
-	    VisualRecognitionOptions voptoins = new VisualRecognitionOptions.Builder().images(obama).build();
+	    VisualRecognitionOptions voptoins = new VisualRecognitionOptions.Builder().images(fileA).build();
 		service.detectFaces(voptoins);
 		DetectedFaces result = service.detectFaces(voptoins).execute();
-System.out.println(result.toString());
         JsonObject json = parser.parse(result.toString()).getAsJsonObject();
 		
 		return json;
