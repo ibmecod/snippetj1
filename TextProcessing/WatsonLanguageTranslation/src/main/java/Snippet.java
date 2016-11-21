@@ -7,9 +7,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.ibm.watson.developer_cloud.language_translation.v2.LanguageTranslation;
-import com.ibm.watson.developer_cloud.language_translation.v2.model.Language;
-import com.ibm.watson.developer_cloud.language_translation.v2.model.TranslationResult;
+import com.ibm.watson.developer_cloud.language_translator.v2.LanguageTranslator;
+import com.ibm.watson.developer_cloud.language_translator.v2.model.Language;
+import com.ibm.watson.developer_cloud.language_translator.v2.model.TranslationResult;
 
 //After deployment go to the relative URI to test the functionality.
 //You would see a form to provide the input values.
@@ -23,7 +23,7 @@ public class Snippet extends SuperGluev2 {
 		JsonParser parser = new JsonParser(); 
 		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
 		
-		LanguageTranslation service = new LanguageTranslation();
+		LanguageTranslator service = new LanguageTranslator();
 		
 		service.setUsernameAndPassword(myBean.get("username").getAsString(), myBean.get("password").getAsString());
 		
