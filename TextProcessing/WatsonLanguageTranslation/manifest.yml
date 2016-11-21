@@ -1,8 +1,8 @@
 ---
 applications:
-- path: target/JavaWatsonLangTranslator.war
-  name: java-watson-language-translator
-  host: java-watson-language-translator-${random-word}
+- path: target/JavaWatsonLangTranslation.war
+  name: java-watson-language-translation
+  host: java-watson-language-translation-${random-word}
   memory: 256M
   instances: 1
   domain: mybluemix.net
