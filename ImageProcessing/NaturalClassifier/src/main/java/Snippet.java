@@ -18,7 +18,6 @@ public class Snippet extends SuperGluev2 {
 		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
 		
 		NaturalLanguageClassifier service = new NaturalLanguageClassifier();
-		service.setEndPoint("https://watson-api-explorer.mybluemix.net/natural-language-classifier/api");
 		service.setUsernameAndPassword(myBean.get("username").getAsString(), myBean.get("password").getAsString());
 
 		Classification result = service.classify("ff18c7x157-nlc-2810", "Is it sunny?").execute();
