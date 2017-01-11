@@ -9,7 +9,7 @@
         <relativePath></relativePath>
     </parent>
 
-    <artifactId>JavaWatsonLangTranslation</artifactId>
+    <artifactId>JavaWatsonLangTranslator</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -97,7 +97,7 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <configuration>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
-                        <warName>JavaWatsonLangTranslation</warName>
+                        <warName>JavaWatsonLangTranslator</warName>
                     </configuration>
                 </plugin>
                 <plugin>
