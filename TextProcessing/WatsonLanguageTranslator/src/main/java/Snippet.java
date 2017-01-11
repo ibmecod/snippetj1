@@ -1,6 +1,6 @@
 // LanguageTranslationTest
 //Select a domain, then identify or select the language of text, and then translate the text from one supported language to another.
-//Example: Translate 'hello' from English to Spanish using the Language Translation service.
+//Example: Translate 'hello my friend' from English to Spanish using the Language Translation service.
 import javax.servlet.annotation.WebServlet;
 
 import com.google.gson.Gson;

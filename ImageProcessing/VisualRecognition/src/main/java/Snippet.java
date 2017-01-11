@@ -25,7 +25,7 @@ public class Snippet extends SuperGluev2 {
 		JsonParser parser = new JsonParser(); 
 		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
 		
-		VisualRecognition service = new VisualRecognition(VisualRecognition.VERSION_DATE_2016_05_19);
+		VisualRecognition service = new VisualRecognition(VisualRecognition.VERSION_DATE_2016_05_20);
 	    service.setApiKey(myBean.get("apiKey").getAsString()); 
 	    
 	    File fileA = new File("test.jpg"); 
@@ -39,8 +39,8 @@ public class Snippet extends SuperGluev2 {
 			e.printStackTrace();
 		}     
 	    VisualRecognitionOptions voptoins = new VisualRecognitionOptions.Builder().images(fileA).build();
-		service.detectFaces(voptoins);
 		DetectedFaces result = service.detectFaces(voptoins).execute();
+		
         JsonObject json = parser.parse(result.toString()).getAsJsonObject();
 		
 		return json;

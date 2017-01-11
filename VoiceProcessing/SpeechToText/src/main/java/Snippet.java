@@ -32,7 +32,6 @@ public class Snippet extends SuperGluev2 {
 		JsonObject myBean = parser.parse(jsonString).getAsJsonObject();  
 		
 		SpeechToText service = new SpeechToText();
-		
 		service.setUsernameAndPassword(myBean.get("username").getAsString(), myBean.get("password").getAsString());
 		
 		File audio = findFile();

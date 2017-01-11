@@ -9,7 +9,7 @@
         <relativePath></relativePath>
     </parent>
 
-    <artifactId>JavaTradeoffAnalytics</artifactId>
+    <artifactId>JavaNLClassifier</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -57,13 +57,18 @@
         </dependency>
         <dependency>
         	<groupId>com.ibm.watson.developer_cloud</groupId>
-        	<artifactId>tradeoff-analytics</artifactId>
+        	<artifactId>natural-language-classifier</artifactId>
         	<version>3.5.3</version>
         </dependency>
         <dependency>
         	<groupId>com.ibm.sample</groupId>
         	<artifactId>super-glue</artifactId>
         	<version>1.0.1</version>
+        </dependency>
+        <dependency>
+        	<groupId>commons-io</groupId>
+        	<artifactId>commons-io</artifactId>
+        	<version>2.4</version>
         </dependency>
         
 	    <!-- Dependency Tracker. Remove the next two dependencies to disable 
@@ -79,7 +84,7 @@
 	      <version>0.1.0</version>
 	    </dependency>
 	    <!-- End of dependency tracker -->
-      
+        
     </dependencies>
        
 
@@ -91,7 +96,7 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <configuration>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
-                        <warName>JavaTradeoffAnalytics</warName>
+                        <warName>JavaNLClassifier</warName>
                     </configuration>
                 </plugin>
                 <plugin>
